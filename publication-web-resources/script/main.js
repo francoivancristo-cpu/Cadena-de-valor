@@ -38,27 +38,3 @@ function showHideArrows() {
 		document.getElementsByClassName("next")[0].style.visibility = "visible";
 	}
 }
-
-function showOverlay() {
-  const overlay = document.getElementById('overlay');
-  overlay.classList.remove('hide');
-  overlay.classList.add('show');
-}
-function hideOverlay() {
-  const overlay = document.getElementById('overlay');
-  overlay.classList.remove('show');
-  overlay.classList.add('hide');
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  const plus = document.getElementById('Button_3'); // tu botón +
-  const overlay = document.getElementById('Rectangle_12'); // tu overlay
-
-  plus.addEventListener('click', () => {
-    overlay.classList.add('show');
-  });
-
-  overlay.addEventListener('click', () => {
-    overlay.classList.remove('show');
-  });
-});
