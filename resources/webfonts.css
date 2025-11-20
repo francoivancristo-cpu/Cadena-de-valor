@@ -1,133 +1,25 @@
-/* =====================================================
-   LATO — fuentes web (autohospedadas, sin local())
-   ===================================================== */
-@font-face {
-  font-family: 'LatoWeb';
-  src: url('/Cadena-de-valor/resources/fonts/Lato-Light.woff2') format('woff2'),
-       url('/Cadena-de-valor/resources/fonts/Lato-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+/* ===== LATO: mismos nombres que usa InDesign (sin local()) ===== */
+@font-face{ font-family:'Lato Light';    src:url('/Cadena-de-valor/resources/fonts/Lato-Light.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/Lato-Light.woff') format('woff'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Lato Light Italic'; src:url('/Cadena-de-valor/resources/fonts/Lato-LightItalic.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/Lato-LightItalic.woff') format('woff'); font-weight:300; font-style:italic; font-display:swap; }
 
-@font-face {
-  font-family: 'LatoWeb';
-  src: url('/Cadena-de-valor/resources/fonts/Lato-LightItalic.woff2') format('woff2'),
-       url('/Cadena-de-valor/resources/fonts/Lato-LightItalic.woff') format('woff');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
+@font-face{ font-family:'Lato Regular';  src:url('/Cadena-de-valor/resources/fonts/Lato-Regular.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/Lato-Regular.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Lato Italic';   src:url('/Cadena-de-valor/resources/fonts/Lato-Italic.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/Lato-Italic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
 
-@font-face {
-  font-family: 'LatoWeb';
-  src: url('/Cadena-de-valor/resources/fonts/Lato-Regular.woff2') format('woff2'),
-       url('/Cadena-de-valor/resources/fonts/Lato-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+@font-face{ font-family:'Lato Bold';     src:url('/Cadena-de-valor/resources/fonts/Lato-Bold.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/Lato-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
 
-@font-face {
-  font-family: 'LatoWeb';
-  src: url('/Cadena-de-valor/resources/fonts/Lato-Italic.woff2') format('woff2'),
-       url('/Cadena-de-valor/resources/fonts/Lato-Italic.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
+/* ===== TITILLIUM WEB: mismos nombres que usa InDesign (sin local()) ===== */
+@font-face{ font-family:'Titillium Web Light';    src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Light.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Light.woff') format('woff'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Titillium Web Light Italic'; src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-LightItalic.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/TitilliumWeb-LightItalic.woff') format('woff'); font-weight:300; font-style:italic; font-display:swap; }
 
-@font-face {
-  font-family: 'LatoWeb';
-  src: url('/Cadena-de-valor/resources/fonts/Lato-Bold.woff2') format('woff2'),
-       url('/Cadena-de-valor/resources/fonts/Lato-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+@font-face{ font-family:'Titillium Web Regular';  src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Regular.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Regular.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Titillium Web Italic';   src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Italic.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Italic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
 
-/* =====================================================
-   TITILLIUM WEB — fuentes web (autohospedadas, sin local())
-   ===================================================== */
-@font-face {
-  font-family: 'TitilliumWebWeb';
-  src: url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Light.woff2') format('woff2'),
-       url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+@font-face{ font-family:'Titillium Web SemiBold'; src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-SemiBold.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/TitilliumWeb-SemiBold.woff') format('woff'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Titillium Web Bold';     src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Bold.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
 
-@font-face {
-  font-family: 'TitilliumWebWeb';
-  src: url('/Cadena-de-valor/resources/fonts/TitilliumWeb-LightItalic.woff2') format('woff2'),
-       url('/Cadena-de-valor/resources/fonts/TitilliumWeb-LightItalic.woff') format('woff');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
+/* ===== (Opcional) si algún texto viene con el nombre genérico sin peso ===== */
+@font-face{ font-family:'Lato'; src:url('/Cadena-de-valor/resources/fonts/Lato-Regular.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/Lato-Regular.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Titillium Web'; src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Regular.woff2') format('woff2'), url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Regular.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
 
-@font-face {
-  font-family: 'TitilliumWebWeb';
-  src: url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Regular.woff2') format('woff2'),
-       url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'TitilliumWebWeb';
-  src: url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Italic.woff2') format('woff2'),
-       url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Italic.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'TitilliumWebWeb';
-  src: url('/Cadena-de-valor/resources/fonts/TitilliumWeb-SemiBold.woff2') format('woff2'),
-       url('/Cadena-de-valor/resources/fonts/TitilliumWeb-SemiBold.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'TitilliumWebWeb';
-  src: url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Bold.woff2') format('woff2'),
-       url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* =====================================================
-   OVERRIDES DESDE INDESIGN (mapeo de nombres)
-   ===================================================== */
-
-/* Todo lo que “huela” a Lato → usa LatoWeb */
-[style*="Lato"], [class*="Lato"], [font-family*="Lato"] {
-  font-family: 'LatoWeb', sans-serif !important;
-}
-
-/* Todo lo que “huela” a Titillium → usa TitilliumWebWeb */
-[style*="Titillium"], [class*="Titillium"], [font-family*="Titillium"] {
-  font-family: 'TitilliumWebWeb', sans-serif !important;
-}
-
-/* Ajuste de pesos comunes */
-[style*="Light"]    { font-weight: 300 !important; }
-[style*="Regular"]  { font-weight: 400 !important; }
-[style*="SemiBold"] { font-weight: 600 !important; }
-[style*="Bold"]     { font-weight: 700 !important; }
-
-/* Forzar itálicas reales */
-[style*="Italic"], [class*="Italic"] { font-style: italic !important; }
-
-/* Suavizado para mejor renderizado */
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* ===== SVG/espaciado cursivas (si ves letras “pegadas” en itálicas exportadas) ===== */
+svg text, svg tspan { text-rendering: optimizeLegibility !important; }
