@@ -1,14 +1,9 @@
-/* 1 fuente, 1 peso, sin local() */
+/* resources/webfonts.css */
 @font-face{
-  font-family: 'TitilliumTest';
-  src: url('fonts/TitilliumWeb-Regular.woff2') format('woff2'),
-       url('fonts/TitilliumWeb-Regular.woff') format('woff');
+  font-family: 'TitilliumTEST';
+  src: url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
-
-/* Fuerza el uso de esa fuente en toda la página para probar */
-html, body, * {
-  font-family: 'TitilliumTest', sans-serif !important;
-}
+html, body, * { font-family: 'TitilliumTEST', sans-serif !important; }
