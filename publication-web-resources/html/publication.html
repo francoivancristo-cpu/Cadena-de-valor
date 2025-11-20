@@ -1,48 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES">
 	<head>
-<style>
-/* ======= LATO (web-only) ======= */
-@font-face{font-family:'LatoWeb';src:url('resources/fonts/Lato-Hairline.woff2') format('woff2'),url('resources/fonts/Lato-Hairline.woff') format('woff');font-weight:100;font-style:normal;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('resources/fonts/Lato-HairlineItalic.woff2') format('woff2'),url('resources/fonts/Lato-HairlineItalic.woff') format('woff');font-weight:100;font-style:italic;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('resources/fonts/Lato-Light.woff2') format('woff2'),url('resources/fonts/Lato-Light.woff') format('woff');font-weight:300;font-style:normal;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('resources/fonts/Lato-LightItalic.woff2') format('woff2'),url('resources/fonts/Lato-LightItalic.woff') format('woff');font-weight:300;font-style:italic;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('resources/fonts/Lato-Regular.woff2') format('woff2'),url('resources/fonts/Lato-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('resources/fonts/Lato-Italic.woff2') format('woff2'),url('resources/fonts/Lato-Italic.woff') format('woff');font-weight:400;font-style:italic;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('resources/fonts/Lato-Bold.woff2') format('woff2'),url('resources/fonts/Lato-Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('resources/fonts/Lato-BoldItalic.woff2') format('woff2'),url('resources/fonts/Lato-BoldItalic.woff') format('woff');font-weight:700;font-style:italic;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('resources/fonts/Lato-Black.woff2') format('woff2'),url('resources/fonts/Lato-Black.woff') format('woff');font-weight:900;font-style:normal;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('resources/fonts/Lato-BlackItalic.woff2') format('woff2'),url('resources/fonts/Lato-BlackItalic.woff') format('woff');font-weight:900;font-style:italic;font-display:swap;}
-
-/* ======= TITILLIUM WEB (web-only) ======= */
-@font-face{font-family:'TitilliumWebWeb';src:url('resources/fonts/TitilliumWeb-ExtraLight.woff2') format('woff2'),url('resources/fonts/TitilliumWeb-ExtraLight.woff') format('woff');font-weight:200;font-style:normal;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('resources/fonts/TitilliumWeb-ExtraLightItalic.woff2') format('woff2'),url('resources/fonts/TitilliumWeb-ExtraLightItalic.woff') format('woff');font-weight:200;font-style:italic;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('resources/fonts/TitilliumWeb-Light.woff2') format('woff2'),url('resources/fonts/TitilliumWeb-Light.woff') format('woff');font-weight:300;font-style:normal;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('resources/fonts/TitilliumWeb-LightItalic.woff2') format('woff2'),url('resources/fonts/TitilliumWeb-LightItalic.woff') format('woff');font-weight:300;font-style:italic;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('resources/fonts/TitilliumWeb-Regular.woff2') format('woff2'),url('resources/fonts/TitilliumWeb-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('resources/fonts/TitilliumWeb-Italic.woff2') format('woff2'),url('resources/fonts/TitilliumWeb-Italic.woff') format('woff');font-weight:400;font-style:italic;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('resources/fonts/TitilliumWeb-SemiBold.woff2') format('woff2'),url('resources/fonts/TitilliumWeb-SemiBold.woff') format('woff');font-weight:600;font-style:normal;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('resources/fonts/TitilliumWeb-SemiBoldItalic.woff2') format('woff2'),url('resources/fonts/TitilliumWeb-SemiBoldItalic.woff') format('woff');font-weight:600;font-style:italic;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('resources/fonts/TitilliumWeb-Bold.woff2') format('woff2'),url('resources/fonts/TitilliumWeb-Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('resources/fonts/TitilliumWeb-BoldItalic.woff2') format('woff2'),url('resources/fonts/TitilliumWeb-BoldItalic.woff') format('woff');font-weight:700;font-style:italic;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('resources/fonts/TitilliumWeb-Black.woff2') format('woff2'),url('resources/fonts/TitilliumWeb-Black.woff') format('woff');font-weight:900;font-style:normal;font-display:swap;}
-
-/* ======= Reasignación contundente (incluye SVG) ======= */
-/* Cualquier cosa que hoy diga Titillium… */
-[style*="Titillium"], [class*="Titillium"], [font-family*="Titillium"] {
-  font-family:'TitilliumWebWeb', sans-serif !important;
-}
-/* Cualquier cosa que hoy diga Lato… */
-[style*="Lato"], [class*="Lato"], [font-family*="Lato"] {
-  font-family:'LatoWeb', sans-serif !important;
-}
-</style>
 
 		<meta charset="utf-8" />
 		<title>publication</title>
 		<link href="../css/idGeneratedStyles.css" rel="stylesheet" type="text/css" />
 		<script src="../script/idGeneratedScript.js" type="text/javascript"></script>
-<link rel="stylesheet" href="/Cadena-de-valor/resources/webfonts.css?v=1">
+<link rel="stylesheet" href="/Cadena-de-valor/resources/webfonts.css?v=10">
 		
 	</head>
 	<body id="publication" onload="RegisterInteractiveHandlers();" style="width:1568px;height:921px;background-color:white;">
