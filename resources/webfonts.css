@@ -1,0 +1,14 @@
+/* 1 fuente, 1 peso, sin local() */
+@font-face{
+  font-family: 'TitilliumTest';
+  src: url('fonts/TitilliumWeb-Regular.woff2') format('woff2'),
+       url('fonts/TitilliumWeb-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fuerza el uso de esa fuente en toda la página para probar */
+html, body, * {
+  font-family: 'TitilliumTest', sans-serif !important;
+}
