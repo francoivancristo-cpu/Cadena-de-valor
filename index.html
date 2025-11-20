@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<style>
+@font-face{
+  font-family: 'TitilliumTEST';
+  src: url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+html, body, * {
+  font-family: 'TitilliumTEST', sans-serif !important;
+}
+</style>
+		
 		<link href="publication-web-resources/css/main.css" rel="stylesheet" type="text/css">
 		</link>
 		<script src="publication-web-resources/script/main.js" type="text/javascript">
 		</script>
-		<link rel="stylesheet" href="resources/webfonts.css?v=1">
+		
 	</head>
 	<body onload="showHideArrows()">
 		<iframe onload="showHideArrows()" id="contentIFrame" class="contentIframeClass" src="publication-web-resources/html/publication.html">		</iframe>
