@@ -9199,18 +9199,4 @@ div._idGenStateHide div._idGenMSO div._idGenCurrentState, figure._idGenStateHide
 div._idGenStateHide, div._idGenStateHide *{
 	visibility:hidden;
 }
-/* Evitar hyphenation y cortes raros */
-html { -webkit-text-size-adjust: 100%; }
-html[lang="es"] *, body * {
-  hyphens: none !important;
-  -webkit-hyphens: none !important;
-  -ms-hyphens: none !important;
-}
 
-/* Asegurar inline “normal” para spans del export */
-span[id], span[class*="Char"], span[class*="Word"], span[class*="_idGen"], span[style*="letter-spacing"] {
-  display: inline !important;
-  position: static !important;
-  letter-spacing: normal !important;
-  white-space: normal !important;
-}
