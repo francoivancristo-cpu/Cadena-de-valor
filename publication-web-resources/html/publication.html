@@ -3711,22 +3711,6 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 				</div>
 			</div>
 		</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Ajustá la clase según tu HTML (ej: .texto, .paragraph, etc.)
-  document.querySelectorAll("p, div, section").forEach(block => {
-    const spans = block.querySelectorAll("span");
-    if (spans.length > 1) {
-      let combined = "";
-      spans.forEach(span => {
-        combined += span.textContent.trim() + " ";
-      });
-      block.textContent = combined.trim();
-    }
-  });
-});
-</script>
 		
 	</body>
 </html>
