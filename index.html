@@ -8,7 +8,7 @@
     html, body {
       height: 100%;
       margin: 0;
-      background: #FFFFFF; /* mismo tono oscuro que el visor */
+      background: #0f0f11; /* mismo tono oscuro que el visor */
     }
     .wrap {
       position: fixed;
@@ -31,15 +31,21 @@
       opacity: .8;
     }
     .fallback a { color: #e6e6e6; }
-
+  </style>
+</head>
+<body>
+  <div class="wrap">
     <iframe
-      src="https://indd.adobe.com/view/ae1c76e5-e379-4c44-807d-cb75c454ddd5?fullscreen"
+      src="YOUR_ADOBE_PUBLISH_URL"
       allowfullscreen
       referrerpolicy="no-referrer-when-downgrade"
       loading="eager"
       title="Documento incrustado">
     </iframe>
-
+    <p class="fallback">
+      Si no carga, abrilo directamente: 
+      <a href="YOUR_ADOBE_PUBLISH_URL" target="_blank" rel="noopener">Abrir en pestaña nueva</a>
+    </p>
   </div>
 </body>
 </html>
