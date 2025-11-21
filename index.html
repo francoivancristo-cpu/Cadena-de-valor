@@ -1,53 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-<style>
-/* ===== LATO – agregar pesos que faltan (sin local()) ===== */
-/* 200 ExtraLight (si lo usás) */
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-ExtraLight.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-ExtraLight.woff') format('woff');font-weight:200;font-style:normal;font-display:swap;}
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-ExtraLightItalic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-ExtraLightItalic.woff') format('woff');font-weight:200;font-style:italic;font-display:swap;}
-
-/* 300 Light (ya lo tenés, lo dejo por claridad) */
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-Light.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Light.woff') format('woff');font-weight:300;font-style:normal;font-display:swap;}
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-LightItalic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-LightItalic.woff') format('woff');font-weight:300;font-style:italic;font-display:swap;}
-
-/* 400 Regular (ya estaba) */
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-Regular.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-Italic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Italic.woff') format('woff');font-weight:400;font-style:italic;font-display:swap;}
-
-/* 500 Medium (MUY común que falte) */
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-Medium.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Medium.woff') format('woff');font-weight:500;font-style:normal;font-display:swap;}
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-MediumItalic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-MediumItalic.woff') format('woff');font-weight:500;font-style:italic;font-display:swap;}
-
-/* 600 SemiBold */
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-Semibold.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Semibold.woff') format('woff');font-weight:600;font-style:normal;font-display:swap;}
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-SemiboldItalic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-SemiboldItalic.woff') format('woff');font-weight:600;font-style:italic;font-display:swap;}
-
-/* 700 Bold (ya estaba) */
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-Bold.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap;}
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-BoldItalic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-BoldItalic.woff') format('woff');font-weight:700;font-style:italic;font-display:swap;}
-
-/* 800 Heavy (muchas veces aparece como “Heavy”) */
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-Heavy.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Heavy.woff') format('woff');font-weight:800;font-style:normal;font-display:swap;}
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-HeavyItalic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-HeavyItalic.woff') format('woff');font-weight:800;font-style:italic;font-display:swap;}
-
-/* 900 Black (ya tenías el normal; agrego italic por si acaso) */
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-Black.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Black.woff') format('woff');font-weight:900;font-style:normal;font-display:swap;}
-@font-face{font-family:'Lato';src:url('/Cadena-de-valor/resources/fonts/Lato-BlackItalic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-BlackItalic.woff') format('woff');font-weight:900;font-style:italic;font-display:swap;}
-
-/* ===== Mapeos de nombres PostScript en SVG (por si aparecen) ===== */
-svg [font-family="Lato-Semibold"],
-svg [font-family="Lato Semibold"]   { font-family:'Lato' !important; font-weight:600 !important; }
-svg [font-family="Lato-Medium"],
-svg [font-family="Lato Medium"]     { font-family:'Lato' !important; font-weight:500 !important; }
-svg [font-family="Lato-Heavy"],
-svg [font-family="Lato Heavy"]      { font-family:'Lato' !important; font-weight:800 !important; }
-svg [font-family="Lato-Black Italic"],
-svg [font-family="Lato Black Italic"] { font-family:'Lato' !important; font-weight:900 !important; font-style:italic !important; }
-
-/* (opcional) mejorar render */
-html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-</style>
 		
 		<link href="publication-web-resources/css/main.css" rel="stylesheet" type="text/css">
 		</link>
