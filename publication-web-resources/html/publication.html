@@ -3724,24 +3724,27 @@ svg text, svg tspan {
 </style>
 
 <script>
-window.addEventListener('load', () => {
-  // Por si InDesign dejó cosas raras a nivel <text>
-  document.querySelectorAll('svg text').forEach(txt => {
-    ['x','dx','textLength','lengthAdjust'].forEach(a => txt.removeAttribute(a));
-    txt.setAttribute('xml:space', 'preserve');
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const containers = document.querySelectorAll("body *");
 
-  // Normaliza cada <tspan> y agrega espacio entre palabras
-  document.querySelectorAll('svg text').forEach(txt => {
-    const tspans = Array.from(txt.querySelectorAll('tspan'));
-    tspans.forEach((t, i) => {
-      // Quitar atributos que comprimen
-      ['x','dx','textLength','lengthAdjust'].forEach(a => t.removeAttribute(a));
-      // Normalizar contenido
-      let s = (t.textContent || '').replace(/\s+/g,' ').trim();
-      if (i < tspans.length - 1) s += ' ';   // espacio después de cada palabra
-      t.textContent = s;
-    });
+  containers.forEach(container => {
+    // Solo si tiene hijos de texto o spans/divs pequeños
+    const children = container.childNodes;
+    for (let i = 0; i < children.length - 1; i++) {
+      const current = children[i];
+      const next = children[i + 1];
+
+      if (current.nodeType === 1 && next.nodeType === 1) {
+        // Ambos son elementos (ej. <span>Palabra</span><span>siguiente</span>)
+        const currentText = current.textContent.trim();
+        const nextText = next.textContent.trim();
+
+        if (currentText && nextText) {
+          // Si no hay espacio entre ambos, se agrega
+          current.insertAdjacentText("afterend", " ");
+        }
+      }
+    }
   });
 });
 </script>
