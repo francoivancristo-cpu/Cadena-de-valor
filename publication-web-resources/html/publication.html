@@ -3725,25 +3725,15 @@ svg text, svg tspan {
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const containers = document.querySelectorAll("body *");
-
-  containers.forEach(container => {
-    // Solo si tiene hijos de texto o spans/divs pequeños
-    const children = container.childNodes;
-    for (let i = 0; i < children.length - 1; i++) {
-      const current = children[i];
-      const next = children[i + 1];
-
-      if (current.nodeType === 1 && next.nodeType === 1) {
-        // Ambos son elementos (ej. <span>Palabra</span><span>siguiente</span>)
-        const currentText = current.textContent.trim();
-        const nextText = next.textContent.trim();
-
-        if (currentText && nextText) {
-          // Si no hay espacio entre ambos, se agrega
-          current.insertAdjacentText("afterend", " ");
-        }
-      }
+  // Ajustá la clase según tu HTML (ej: .texto, .paragraph, etc.)
+  document.querySelectorAll("p, div, section").forEach(block => {
+    const spans = block.querySelectorAll("span");
+    if (spans.length > 1) {
+      let combined = "";
+      spans.forEach(span => {
+        combined += span.textContent.trim() + " ";
+      });
+      block.textContent = combined.trim();
     }
   });
 });
