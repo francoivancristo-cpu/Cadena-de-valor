@@ -51,9 +51,18 @@
 /* Suavizado de renderizado */
 html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 </style>
-	
+
+<style>
+/* Cambiá .scope por el contenedor que quieras (p.ej. #contenido, .texto) */
+.scope span + span::before { content: " "; }
+/* (Opcional) también entre enlaces y spans */
+.scope a + span::before,
+.scope span + a::before { content: " "; }
+</style>
+		
 	</head>
 	<body id="publication" onload="RegisterInteractiveHandlers();" style="width:1568px;height:921px;background-color:white;">
+		<div class="scope">
 		<div id="_idContainer000">
 			<img class="_idGenObjectAttribute-1 _idGenObjectAttribute-2" src="../image/Cadena_de_valores_ENAIRE_2.svg" alt="" />
 		</div>
@@ -3711,7 +3720,7 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 				</div>
 			</div>
 		</div>
-
+</div>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   // Selecciona todos los contenedores que tienen spans
