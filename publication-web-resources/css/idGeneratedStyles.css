@@ -9205,8 +9205,6 @@ html[lang="es"] *, body * {
   hyphens: none !important;
   -webkit-hyphens: none !important;
   -ms-hyphens: none !important;
-  word-break: normal !important;
-  overflow-wrap: break-word; /* solo rompe si es necesario, sin cortar palabras a lo loco */
 }
 
 /* Asegurar inline “normal” para spans del export */
