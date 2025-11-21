@@ -3723,22 +3723,40 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Selecciona todos los contenedores que tienen spans
-  document.querySelectorAll("body *:has(span)").forEach(container => {
-    const spans = container.querySelectorAll("span");
-    for (let i = 0; i < spans.length - 1; i++) {
-      const current = spans[i];
-      const next = spans[i + 1];
-      
-      const currentText = current.textContent.trim();
-      const nextText = next.textContent.trim();
-      
-      if (currentText && nextText) {
-        // Si no hay espacio entre ambos, agregamos uno
-        current.insertAdjacentText("afterend", " ");
+  const scope = document.querySelector(".scope") || document.body;
+  if (scope.dataset.spaced === "1") return; // evita dobles ejecuciones
+  scope.dataset.spaced = "1";
+
+  function needsSpace(endChar, startChar) {
+    // letras/números/cierres de paréntesis antes, y letra/número/apertura después
+    const endOK   = /[A-Za-zÁ-ÿ0-9\)]$/.test(endChar || "");
+    const startOK = /^[A-Za-zÁ-ÿ0-9\(]/.test(startChar || "");
+    return endOK && startOK;
+  }
+
+  const walker = document.createTreeWalker(scope, NodeFilter.SHOW_ELEMENT, null);
+  let node;
+  while ((node = walker.nextNode())) {
+    // Recorremos hijos de cada nodo buscando pares de spans hermanos
+    const children = node.childNodes;
+    for (let i = 0; i < children.length - 1; i++) {
+      const a = children[i];
+      const b = children[i + 1];
+
+      if (a.nodeType === 1 && b.nodeType === 1 && a.tagName === "SPAN" && b.tagName === "SPAN") {
+        const aText = (a.textContent || "").trimEnd();
+        const bText = (b.textContent || "").trimStart();
+
+        // ¿ya hay un espacio entre medio?
+        const mid = b.previousSibling;
+        const alreadySpace = mid && mid.nodeType === 3 && /\s$/.test(mid.textContent);
+
+        if (!alreadySpace && aText && bText && needsSpace(aText.slice(-1), bText[0])) {
+          node.insertBefore(document.createTextNode(" "), b);
+        }
       }
     }
-  });
+  }
 });
 </script>
 		
