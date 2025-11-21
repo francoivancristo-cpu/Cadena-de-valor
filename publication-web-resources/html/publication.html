@@ -3711,6 +3711,27 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 				</div>
 			</div>
 		</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Selecciona todos los contenedores que tienen spans
+  document.querySelectorAll("body *:has(span)").forEach(container => {
+    const spans = container.querySelectorAll("span");
+    for (let i = 0; i < spans.length - 1; i++) {
+      const current = spans[i];
+      const next = spans[i + 1];
+      
+      const currentText = current.textContent.trim();
+      const nextText = next.textContent.trim();
+      
+      if (currentText && nextText) {
+        // Si no hay espacio entre ambos, agregamos uno
+        current.insertAdjacentText("afterend", " ");
+      }
+    }
+  });
+});
+</script>
 		
 	</body>
 </html>
