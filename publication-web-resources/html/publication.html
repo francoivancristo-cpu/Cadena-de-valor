@@ -3712,24 +3712,38 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 			</div>
 		</div>
 
-		<script>
-(function fixTightSVG() {
-  const root = document; // estamos dentro del iframe
-  const texts = root.querySelectorAll('svg text, svg tspan');
-  texts.forEach(el => {
-    // Quita atributos que fuerzan compresión
-    if (el.hasAttribute('textLength')) el.removeAttribute('textLength');
-    if (el.hasAttribute('lengthAdjust')) el.removeAttribute('lengthAdjust');
-    // Normaliza dx/dy si vienen con múltiples valores
-    if (el.hasAttribute('dx')) el.removeAttribute('dx');
-    if (el.hasAttribute('dy')) el.removeAttribute('dy');
-    // Asegura preservación de espacios
-    el.setAttribute('xml:space', 'preserve');
-    // Parchea estilos inline que colapsan espaciado
-    el.style.letterSpacing = '';
-    el.style.wordSpacing = '';
+	<style>
+/* Que SVG respete espacios y renderice bien */
+svg text, svg tspan {
+  white-space: pre !important;
+  text-rendering: optimizeLegibility !important;
+  letter-spacing: 0 !important;
+  word-spacing: 0 !important;
+  font-kerning: normal !important;
+}
+</style>
+
+<script>
+window.addEventListener('load', () => {
+  // Por si InDesign dejó cosas raras a nivel <text>
+  document.querySelectorAll('svg text').forEach(txt => {
+    ['x','dx','textLength','lengthAdjust'].forEach(a => txt.removeAttribute(a));
+    txt.setAttribute('xml:space', 'preserve');
   });
-})();
+
+  // Normaliza cada <tspan> y agrega espacio entre palabras
+  document.querySelectorAll('svg text').forEach(txt => {
+    const tspans = Array.from(txt.querySelectorAll('tspan'));
+    tspans.forEach((t, i) => {
+      // Quitar atributos que comprimen
+      ['x','dx','textLength','lengthAdjust'].forEach(a => t.removeAttribute(a));
+      // Normalizar contenido
+      let s = (t.textContent || '').replace(/\s+/g,' ').trim();
+      if (i < tspans.length - 1) s += ' ';   // espacio después de cada palabra
+      t.textContent = s;
+    });
+  });
+});
 </script>
 		
 	</body>
