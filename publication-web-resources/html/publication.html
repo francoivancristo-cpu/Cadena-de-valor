@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES">
 	<head>
+		
 <style>
   /* Evita cortes raros y guiones automáticos */
   html, body { hyphens: none; -webkit-hyphens: none; -ms-hyphens: none; }
@@ -75,6 +76,12 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 /* (Opcional) también entre enlaces y spans */
 .scope a + span::before,
 .scope span + a::before { content: " "; }
+</style>
+
+<style>
+  html{ -webkit-text-size-adjust:100% }
+  /* Evitar cortes raros de palabras */
+  *{ hyphens:none !important; -webkit-hyphens:none !important; word-break:normal !important; overflow-wrap:break-word }
 </style>
 		
 	</head>
@@ -3777,21 +3784,15 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
     }
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
-    flattenSplitSpans(document.body);
-
-    // Por si hay contenido que entra luego (carousels, tabs, etc.)
-    const mo = new MutationObserver(muts => {
-      for (const m of muts) {
-        for (const node of m.addedNodes || []) {
-          if (node.nodeType === 1) flattenSplitSpans(node);
-        }
+<script>
+  // Quita spans “de exportación” que separan palabras
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('span').forEach(function(s){
+      if (s.children.length===0 && /(_idGen|Char|Word|Para)/i.test(String(s.className||"")) ){
+        s.replaceWith(document.createTextNode(s.textContent));
       }
     });
-    mo.observe(document.body, { childList: true, subtree: true });
   });
-})();
 </script>
-		
 	</body>
 </html>
