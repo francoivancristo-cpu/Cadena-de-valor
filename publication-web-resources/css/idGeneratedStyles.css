@@ -146,40 +146,35 @@
 46.1538% { opacity:0; }
 100% { opacity:0; }
 } 
-/* ===== Lato (web-only) ===== */
-@font-face{font-family:'LatoWeb';src:url('/Cadena-de-valor/resources/fonts/Lato-Light.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Light.woff') format('woff');font-weight:300;font-style:normal;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('/Cadena-de-valor/resources/fonts/Lato-LightItalic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-LightItalic.woff') format('woff');font-weight:300;font-style:italic;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('/Cadena-de-valor/resources/fonts/Lato-Regular.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('/Cadena-de-valor/resources/fonts/Lato-Italic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Italic.woff') format('woff');font-weight:400;font-style:italic;font-display:swap;}
-@font-face{font-family:'LatoWeb';src:url('/Cadena-de-valor/resources/fonts/Lato-Bold.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap;}
 
-/* ===== Titillium (web-only) ===== */
-@font-face{font-family:'TitilliumWebWeb';src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Light.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Light.woff') format('woff');font-weight:300;font-style:normal;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-LightItalic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/TitilliumWeb-LightItalic.woff') format('woff');font-weight:300;font-style:italic;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Regular.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Italic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Italic.woff') format('woff');font-weight:400;font-style:italic;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-SemiBold.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/TitilliumWeb-SemiBold.woff') format('woff');font-weight:600;font-style:normal;font-display:swap;}
-@font-face{font-family:'TitilliumWebWeb';src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Bold.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap;}
-
-/* ===== Overrides (HTML + SVG) ===== */
-[style*="Lato"], [class*="Lato"], [font-family*="Lato"], svg [font-family*="Lato"] {
-  font-family:'LatoWeb', sans-serif !important;
-}
-[style*="Titillium"], [class*="Titillium"], [font-family*="Titillium"], svg [font-family*="Titillium"] {
-  font-family:'TitilliumWebWeb', sans-serif !important;
+<style>
+/* 1) Quitar impacto de los miles de spans por letra */
+p span, h1 span, h2 span, h3 span, h4 span, h5 span, h6 span, li span {
+  /* “desaparece” el span en el flujo y deja solo el texto */
+  display: contents !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  white-space: inherit !important;
 }
 
-/* SVG cursivas compactas */
-svg text, svg tspan { text-rendering: optimizeLegibility !important; font-kerning: normal !important; }
-body, div, dl, dt, dd, h1, h2, h3, h4, h5, h6, p, pre, code, blockquote, figure {
-	margin:0;
-	padding:0;
-	border-width:0;
-	text-rendering:optimizeSpeed;
+/* 2) Asegurar que nada fuerce cortes raros en medio de palabras */
+*, *::before, *::after {
+  word-break: normal !important;
+  overflow-wrap: break-word !important; /* solo corta si es necesario al final de la línea */
+  hyphens: manual; /* desactiva guionado automático agresivo */
 }
-div > svg {
-	position:absolute;
+
+/* 3) Por si el export puso inline-block en spans de texto */
+span[style*="inline-block"] {
+  display: inline !important;
 }
+
+/* 4) Reset suave de tracking que a veces queda metido */
+[class*="char"], [class*="para"] {
+  letter-spacing: normal !important;
+}
+</style>
+
 div.Marco-gr-fico-b-sico {
 	border-color:#000000;
 	border-width:1px;
