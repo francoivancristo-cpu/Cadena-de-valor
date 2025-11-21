@@ -3711,5 +3711,26 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 				</div>
 			</div>
 		</div>
+
+		<script>
+(function fixTightSVG() {
+  const root = document; // estamos dentro del iframe
+  const texts = root.querySelectorAll('svg text, svg tspan');
+  texts.forEach(el => {
+    // Quita atributos que fuerzan compresión
+    if (el.hasAttribute('textLength')) el.removeAttribute('textLength');
+    if (el.hasAttribute('lengthAdjust')) el.removeAttribute('lengthAdjust');
+    // Normaliza dx/dy si vienen con múltiples valores
+    if (el.hasAttribute('dx')) el.removeAttribute('dx');
+    if (el.hasAttribute('dy')) el.removeAttribute('dy');
+    // Asegura preservación de espacios
+    el.setAttribute('xml:space', 'preserve');
+    // Parchea estilos inline que colapsan espaciado
+    el.style.letterSpacing = '';
+    el.style.wordSpacing = '';
+  });
+})();
+</script>
+		
 	</body>
 </html>
