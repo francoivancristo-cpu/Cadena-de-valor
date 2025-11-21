@@ -1,7 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES">
 	<head>
+<style>
+  /* Evita cortes raros y guiones automáticos */
+  html, body { hyphens: none; -webkit-hyphens: none; -ms-hyphens: none; }
 
+  /* Si el export dio estilos “rígidos” a los spans, los neutralizamos */
+  span {
+    display: inline !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    letter-spacing: normal !important;
+  }
+
+  /* Evita que las letras se traten como bloques */
+  [class*="char"], [class*="letter"], [data-char] {
+    display: inline !important;
+  }
+</style>
 		<meta charset="utf-8" />
 		<title>publication</title>
 		<link href="../css/idGeneratedStyles.css" rel="stylesheet" type="text/css" />
@@ -3722,42 +3739,58 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 		</div>
 </div>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const scope = document.querySelector(".scope") || document.body;
-  if (scope.dataset.spaced === "1") return; // evita dobles ejecuciones
-  scope.dataset.spaced = "1";
+(function() {
+  const isOneCharSpan = n =>
+    n && n.nodeType === 1 && n.tagName === 'SPAN' && n.textContent && n.textContent.length === 1;
 
-  function needsSpace(endChar, startChar) {
-    // letras/números/cierres de paréntesis antes, y letra/número/apertura después
-    const endOK   = /[A-Za-zÁ-ÿ0-9\)]$/.test(endChar || "");
-    const startOK = /^[A-Za-zÁ-ÿ0-9\(]/.test(startChar || "");
-    return endOK && startOK;
-  }
-
-  const walker = document.createTreeWalker(scope, NodeFilter.SHOW_ELEMENT, null);
-  let node;
-  while ((node = walker.nextNode())) {
-    // Recorremos hijos de cada nodo buscando pares de spans hermanos
-    const children = node.childNodes;
-    for (let i = 0; i < children.length - 1; i++) {
-      const a = children[i];
-      const b = children[i + 1];
-
-      if (a.nodeType === 1 && b.nodeType === 1 && a.tagName === "SPAN" && b.tagName === "SPAN") {
-        const aText = (a.textContent || "").trimEnd();
-        const bText = (b.textContent || "").trimStart();
-
-        // ¿ya hay un espacio entre medio?
-        const mid = b.previousSibling;
-        const alreadySpace = mid && mid.nodeType === 3 && /\s$/.test(mid.textContent);
-
-        if (!alreadySpace && aText && bText && needsSpace(aText.slice(-1), bText[0])) {
-          node.insertBefore(document.createTextNode(" "), b);
-        }
+  function looksLikeSplitText(children) {
+    // Permite espacios de texto sueltos, pero el resto deben ser spans de 1 char
+    let sawSpan = false;
+    for (const node of children) {
+      if (node.nodeType === 3) {
+        // Texto: solo espacios/line-breaks
+        if (node.textContent.replace(/\s+/g, '') !== '') return false;
+      } else if (isOneCharSpan(node)) {
+        sawSpan = true;
+      } else {
+        return false;
       }
     }
+    return sawSpan;
   }
-});
+
+  function flattenSplitSpans(root) {
+    const tree = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null);
+    const candidates = [];
+    while (tree.nextNode()) {
+      const el = tree.currentNode;
+      const kids = Array.from(el.childNodes);
+      if (kids.length && looksLikeSplitText(kids)) {
+        candidates.push(el);
+      }
+    }
+    // Reemplazamos de atrás hacia adelante para evitar invalidar el walker
+    for (let i = candidates.length - 1; i >= 0; i--) {
+      const el = candidates[i];
+      const text = Array.from(el.childNodes).map(n => n.textContent).join('').replace(/\s+/g, ' ');
+      el.replaceChildren(document.createTextNode(text));
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    flattenSplitSpans(document.body);
+
+    // Por si hay contenido que entra luego (carousels, tabs, etc.)
+    const mo = new MutationObserver(muts => {
+      for (const m of muts) {
+        for (const node of m.addedNodes || []) {
+          if (node.nodeType === 1) flattenSplitSpans(node);
+        }
+      }
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+  });
+})();
 </script>
 		
 	</body>
