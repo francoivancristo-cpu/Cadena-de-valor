@@ -146,54 +146,31 @@
 46.1538% { opacity:0; }
 100% { opacity:0; }
 } 
-@font-face {
-	font-family:Lato;
-	font-style:normal;
-	font-weight:bold;
-	src : url("../../font/Lato-Bold.ttf");
+/* ===== Lato (web-only) ===== */
+@font-face{font-family:'LatoWeb';src:url('/Cadena-de-valor/resources/fonts/Lato-Light.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Light.woff') format('woff');font-weight:300;font-style:normal;font-display:swap;}
+@font-face{font-family:'LatoWeb';src:url('/Cadena-de-valor/resources/fonts/Lato-LightItalic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-LightItalic.woff') format('woff');font-weight:300;font-style:italic;font-display:swap;}
+@font-face{font-family:'LatoWeb';src:url('/Cadena-de-valor/resources/fonts/Lato-Regular.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'LatoWeb';src:url('/Cadena-de-valor/resources/fonts/Lato-Italic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Italic.woff') format('woff');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'LatoWeb';src:url('/Cadena-de-valor/resources/fonts/Lato-Bold.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/Lato-Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap;}
+
+/* ===== Titillium (web-only) ===== */
+@font-face{font-family:'TitilliumWebWeb';src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Light.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Light.woff') format('woff');font-weight:300;font-style:normal;font-display:swap;}
+@font-face{font-family:'TitilliumWebWeb';src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-LightItalic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/TitilliumWeb-LightItalic.woff') format('woff');font-weight:300;font-style:italic;font-display:swap;}
+@font-face{font-family:'TitilliumWebWeb';src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Regular.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'TitilliumWebWeb';src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Italic.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Italic.woff') format('woff');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'TitilliumWebWeb';src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-SemiBold.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/TitilliumWeb-SemiBold.woff') format('woff');font-weight:600;font-style:normal;font-display:swap;}
+@font-face{font-family:'TitilliumWebWeb';src:url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Bold.woff2') format('woff2'),url('/Cadena-de-valor/resources/fonts/TitilliumWeb-Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap;}
+
+/* ===== Overrides (HTML + SVG) ===== */
+[style*="Lato"], [class*="Lato"], [font-family*="Lato"], svg [font-family*="Lato"] {
+  font-family:'LatoWeb', sans-serif !important;
 }
-@font-face {
-	font-family:"Lato Light";
-	font-style:normal;
-	font-weight:300;
-	src : url("../../font/Lato-Light.ttf");
+[style*="Titillium"], [class*="Titillium"], [font-family*="Titillium"], svg [font-family*="Titillium"] {
+  font-family:'TitilliumWebWeb', sans-serif !important;
 }
-@font-face {
-	font-family:"Lato Medium";
-	font-style:normal;
-	font-weight:500;
-	src : url("../../font/Lato-Medium.ttf");
-}
-@font-face {
-	font-family:"Minion Pro";
-	font-style:normal;
-	font-weight:normal;
-	src : url("../../font/MinionPro-Regular.otf");
-}
-@font-face {
-	font-family:"Titillium Web";
-	font-style:normal;
-	font-weight:bold;
-	src : url("../../font/TitilliumWeb-Bold.ttf");
-}
-@font-face {
-	font-family:"Titillium Web Light";
-	font-style:normal;
-	font-weight:300;
-	src : url("../../font/TitilliumWeb-Light.ttf");
-}
-@font-face {
-	font-family:"Titillium Web Light";
-	font-style:italic;
-	font-weight:300;
-	src : url("../../font/TitilliumWeb-LightItalic.ttf");
-}
-@font-face {
-	font-family:"Titillium Web Light";
-	font-style:oblique;
-	font-weight:300;
-	src : url("../../font/TitilliumWeb-LightItalic.ttf");
-}
+
+/* SVG cursivas compactas */
+svg text, svg tspan { text-rendering: optimizeLegibility !important; font-kerning: normal !important; }
 body, div, dl, dt, dd, h1, h2, h3, h4, h5, h6, p, pre, code, blockquote, figure {
 	margin:0;
 	padding:0;
