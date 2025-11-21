@@ -9200,30 +9200,3 @@ div._idGenStateHide, div._idGenStateHide *{
 	visibility:hidden;
 }
 
-/* Forzar que Titillium Web use la versión online */
-*[style*="Titillium Web Light"] {
-  font-family: 'Titillium Web', sans-serif !important;
-  font-weight: 300 !important;
-}
-*[style*="Titillium Web Regular"] {
-  font-family: 'Titillium Web', sans-serif !important;
-  font-weight: 400 !important;
-}
-*[style*="Titillium Web Bold"] {
-  font-family: 'Titillium Web', sans-serif !important;
-  font-weight: 700 !important;
-}
-
-/* Forzar que Lato use la versión online */
-*[style*="Lato Light"] {
-  font-family: 'Lato', sans-serif !important;
-  font-weight: 300 !important;
-}
-*[style*="Lato Regular"] {
-  font-family: 'Lato', sans-serif !important;
-  font-weight: 400 !important;
-}
-*[style*="Lato Bold"] {
-  font-family: 'Lato', sans-serif !important;
-  font-weight: 700 !important;
-}
