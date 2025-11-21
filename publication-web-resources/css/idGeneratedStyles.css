@@ -147,33 +147,6 @@
 100% { opacity:0; }
 } 
 
-<style>
-/* 1) Quitar impacto de los miles de spans por letra */
-p span, h1 span, h2 span, h3 span, h4 span, h5 span, h6 span, li span {
-  /* “desaparece” el span en el flujo y deja solo el texto */
-  display: contents !important;
-  letter-spacing: normal !important;
-  word-spacing: normal !important;
-  white-space: inherit !important;
-}
-
-/* 2) Asegurar que nada fuerce cortes raros en medio de palabras */
-*, *::before, *::after {
-  word-break: normal !important;
-  overflow-wrap: break-word !important; /* solo corta si es necesario al final de la línea */
-  hyphens: manual; /* desactiva guionado automático agresivo */
-}
-
-/* 3) Por si el export puso inline-block en spans de texto */
-span[style*="inline-block"] {
-  display: inline !important;
-}
-
-/* 4) Reset suave de tracking que a veces queda metido */
-[class*="char"], [class*="para"] {
-  letter-spacing: normal !important;
-}
-</style>
 
 div.Marco-gr-fico-b-sico {
 	border-color:#000000;
